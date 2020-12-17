@@ -18,11 +18,36 @@ Future<Null> main() async {
   } on CameraException catch (e) {
     print('Error: $e.code\nError Message: $e.message');
   }
+  
   runApp(
     MaterialApp(
+      theme: ThemeData.dark(),
       title: 'Teachable Machine with Flutter',
-      home: FlutterTeachable(cameras),
-    ),
+      home:DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+           
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.home)),
+                Tab(icon: Icon(Icons.info)),
+               
+              ],
+            ),
+            title: Text('Tabs Demo'),
+            centerTitle: true,
+          ),
+          body: TabBarView(
+            children: [
+             FlutterTeachable(cameras),
+              Icon(Icons.directions_transit),
+             
+            ],
+          ),
+        ),
+      ),
+    )
   );
 }
 
@@ -124,9 +149,6 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Teachable Machine with FLUTTER"),
-      ),
       body: !liveFeed
           ? Center(
               child: ListView(
@@ -205,3 +227,6 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
     );
   }
 }
+
+
+
