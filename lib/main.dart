@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math' as math;
 
+
 import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
 import 'package:image_picker/image_picker.dart';
@@ -18,7 +19,8 @@ Future<Null> main() async {
   } on CameraException catch (e) {
     print('Error: $e.code\nError Message: $e.message');
   }
-  
+
+
   runApp(
     MaterialApp(
       theme: ThemeData.dark(),
@@ -26,17 +28,32 @@ Future<Null> main() async {
       home:DefaultTabController(
         length: 2,
         child: Scaffold(
-          appBar: AppBar(
-           
-            bottom: TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.home)),
-                Tab(icon: Icon(Icons.info)),
-               
-              ],
+          
+          appBar: PreferredSize(
+            preferredSize:  Size.fromHeight(100.0),
+                      child: AppBar(
+               shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        bottom: Radius.circular(50),
+      ),
+    ),
+              bottom: TabBar(
+                indicatorSize: TabBarIndicatorSize.label,
+                tabs: [
+                  Container(
+                    height:30,
+                    child: Text('Home',style: TextStyle(fontSize:20))
+                    ),
+                  Container(
+                    height:30,
+                    child: Text('About',style: TextStyle(fontSize:20))
+                    ),
+                 
+                ],
+              ),
+              title: Text('Tabs Demo'),
+              centerTitle: true,
             ),
-            title: Text('Tabs Demo'),
-            centerTitle: true,
           ),
           body: TabBarView(
             children: [
@@ -149,6 +166,7 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      
       body: !liveFeed
           ? Center(
               child: ListView(
@@ -227,6 +245,5 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
     );
   }
 }
-
 
 
