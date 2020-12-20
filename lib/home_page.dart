@@ -1,4 +1,5 @@
 
+import 'package:Flutter_TM/about.dart';
 import 'package:flutter/rendering.dart';
 
 import './flutter_teachble.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize:  Size.fromHeight(100.0),
                     child: AppBar(
-                      leading: Container(),
+                      
              shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.vertical(
       bottom: Radius.circular(50),
@@ -44,7 +45,7 @@ class HomePage extends StatelessWidget {
         body: TabBarView(
           children: [
            FlutterTeachable(cameras),
-            Icon(Icons.directions_transit),
+            About(),
            
           ],
         ),
