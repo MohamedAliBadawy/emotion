@@ -31,9 +31,9 @@ class _SplashScreenState extends State<SplashScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height:220.0,),
+                  SizedBox(height:180.0,),
                   Image.asset('assets/Emo.png',width: 150,height:150,),
-                  SizedBox(height:10),
+                  SizedBox(height:180),
                   SpinKitChasingDots(
                       color: Colors.green,
                       size: 35.0
