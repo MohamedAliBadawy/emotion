@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter_animated_button/flutter_animated_button.dart';
 
 class FlutterTeachable extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -141,30 +142,59 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
           : Stack(),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            RaisedButton(
-              child: Text("Image Feed"),
-              onPressed: () {
-                setState(() {
-                  liveFeed = false;
-                });
-                chooseImage();
-              },
-            ),
-            RaisedButton(
-              child: Text("Live Feed"),
-              onPressed: () {
+           AnimatedButton(
+             onPress: (){
+                Future.delayed(Duration(seconds:1),(){
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => DetectScreen(
                               title: "live",
                             )));
-              },
+  
+             });
+              
+             },
+              height: 50,
+              width: 300,
+              text: 'Live Feed',
+              isReverse: true,
+              selectedTextColor: Colors.black,
+              transitionType: TransitionType.LEFT_TO_RIGHT,
+              selectedBackgroundColor: Colors.green,
+              backgroundColor: Colors.grey[20],
+              borderColor: Colors.white,
+              borderRadius: 50,
+              borderWidth: 0,
+            ),
+            SizedBox(height: 20,),
+             AnimatedButton(
+               onPress: (){
+             Future.delayed(Duration(seconds:1),(){
+                setState(() {
+                  liveFeed = false;
+                });
+                chooseImage();
+             });
+                 
+               },
+              height: 50,
+              width: 300,
+              text: 'Image Feed',
+              isReverse: true,
+              selectedTextColor: Colors.black,
+              transitionType: TransitionType.LEFT_TO_RIGHT,
+              selectedBackgroundColor: Colors.green,
+              backgroundColor: Colors.grey[20],
+              borderColor: Colors.white,
+              borderRadius: 50,
+              borderWidth: 0,
             ),
           ],
+          
         ),
       ),
     );
