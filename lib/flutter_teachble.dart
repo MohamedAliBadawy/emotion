@@ -176,8 +176,9 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
              Future.delayed(Duration(seconds:1),(){
                 setState(() {
                   liveFeed = false;
-                });
+                
                 chooseImage();
+                });
              });
                  
                },
