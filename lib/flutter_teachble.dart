@@ -145,19 +145,17 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-           AnimatedButton(
-             onPress: (){
-                Future.delayed(Duration(seconds:1),(){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => DetectScreen(
-                              title: "live",
-                            )));
-  
-             });
-              
-             },
+            AnimatedButton(
+              onPress: () {
+                Future.delayed(Duration(seconds: 1), () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetectScreen(
+                                title: "live",
+                              )));
+                });
+              },
               height: 50,
               width: 300,
               text: 'Live Feed',
@@ -170,18 +168,18 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
               borderRadius: 50,
               borderWidth: 0,
             ),
-            SizedBox(height: 20,),
-             AnimatedButton(
-               onPress: (){
-             Future.delayed(Duration(seconds:1),(){
-                setState(() {
-                  liveFeed = false;
-                
-                chooseImage();
+            SizedBox(
+              height: 20,
+            ),
+            AnimatedButton(
+              onPress: () {
+                Future.delayed(Duration(seconds: 1), () {
+                  setState(() {
+                    liveFeed = false;
+                  });
+                  chooseImage();
                 });
-             });
-                 
-               },
+              },
               height: 50,
               width: 300,
               text: 'Image Feed',
@@ -195,7 +193,6 @@ class _FlutterTeachableState extends State<FlutterTeachable> {
               borderWidth: 0,
             ),
           ],
-          
         ),
       ),
     );
